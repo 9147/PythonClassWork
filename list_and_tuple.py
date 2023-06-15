@@ -23,4 +23,3 @@
 #develop a python program to convert a list of characters into string
 li=['a', 'b', 'h', 'i', ' ', 'i', 's', ' ', 'a', ' ', 'g', 'o', 'o', 'd', ' ', 'b', 'o', 'y']
 print("".join(li))
-hkjhfkjhd
