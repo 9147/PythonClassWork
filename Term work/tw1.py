@@ -1,33 +1,20 @@
-# countries={"CA":"Canada",
-#            "US":"United States",
-#            'MX':"Mexico",
-#            "FR":"France"}
-#
-# print('''COMMAND MENU
-# view - View an element
-# add - Add a element
-# del - Delete an element
-# exit - exit from the shell
-# ''')
-# commands={'view':lambda:view(),'add':lambda:add(),'del':lambda:delete(),'exit':lambda :exit()}
-# while True:
-#     val=input("Command: ")
-#     commands[val]
-#
-# def view():
-#     print("Country codes",*list(countries.keys()))
-#     a=input("Enter the country codes")
-#     print("Country name:",countries[a])
-#
-# def add():
-#     code=input("Enter the country code: ")
-#     name=input("Enter the country name: ")
-#     countries[code]=name
-#     print(countries[code]," was added.")
-#
-# def delete():
-#     code=input("Enter the country code: ")
-#     print(countries[code]," was deleted. ")
-#     del countries[code]
+'''
+    Develop a menu driven program to implement a queue. THe operation would be
+    a.Add an item to the queue
+    b.Delete an item from queue
+    c.Display the queue
+'''
 
-print(sum([12,14]))
+li=[]
+val=1
+print("1->.Add an item to the queue\n2->.Delete an item from queue\n3->.Display the queue\n4->exit")
+while val!=4:
+    val=int(input("Select one option: "))
+    if val==1:
+        a=input("enter a value to add: ")
+        li.append(a)
+    elif val==2:
+        print("the value ",li.pop(0)," is removed")
+    elif val==3:
+        print("Queue: ",*li)
+
