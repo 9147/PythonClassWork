@@ -34,6 +34,8 @@ def search_by_author(value):
         return []
 
 def search_by_price(value):
+    if value<=0:
+        raise Exception("Value of price can't be less than or equal to 0")
     with open("books.csv", "r") as file:
         reader = csv.reader(file)
         li=[]
