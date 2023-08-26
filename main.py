@@ -1,20 +1,50 @@
-# print("insert into staff")
-# print("values(1,'Amit','Belgaum','Testing',5000);")
-a='''5000
-9000
-10000
-6000
-8000
-5000
-5000
-9000
-10000
-12000
-9000'''
-li1=['Amit', 'Dilip', 'Abhishek', 'Rohan', 'Ramesh', 'Prashant', 'Ravi', 'Akshata', 'Raghu', 'Kumar', 'Dimple']
-li2=['Belgaum', 'belgaum', 'Nagpur', 'Belgaum', 'Gokak', 'Bagalkot', 'Belgaum', 'Dharwad', 'Hubli', 'Banglore', 'Nippani']
-li3=['Testing', 'Design', 'Testing', 'Production', 'Testing', 'Design', 'Production', 'Design', 'Design', 'Production', 'Production']
-li4=[5000, 9000, 10000, 6000, 8000, 5000, 5000, 9000, 10000, 12000, 9000]
-for i in range(1,len(li1)+1):
-    print("insert into staff")
-    print(f'values({i},\'{li1[i-1]}\',\'{li2[i-1]}\',\'{li3[i-1]}\',{li4[i-1]});')
+import tkinter as tk
+from tkinter import messagebox
+
+def add():
+    try:
+        result.set(float(entry_n1.get()) + float(entry_n2.get()))
+    except ValueError():
+        messagebox.showerror("Error", "Print valid numbers")
+
+def subtract():
+    try:
+        result.set(float(entry_n1.get()) - float(entry_n2.get()))
+    except ValueError():
+        messagebox.showerror("Error", "Print valid numbers")
+
+def multiply():
+    try:
+        result.set(float(entry_n1.get()) * float(entry_n2.get()))
+    except ValueError():
+        messagebox.showerror("Error", "Print valid numbers")
+
+def divide():
+    try:
+        n2 = float(entry_n2.get())
+        if n2 == 0:
+            messagebox.showerror("Error", "Cannot divide by zero")
+        else:
+            result.set(float(entry_n1.get()) / n2)
+
+    except ValueError():
+        messagebox.showerror("Error", "Print valid numbers")
+
+window =tk.Tk()
+window.title("Calculator")
+entry_n1 = tk.Entry(window)
+entry_n1.pack()
+entry_n2 = tk.Entry(window)
+entry_n2.pack()
+result = tk.StringVar()
+result_label = tk.Label(window, textvariable=result)
+result_label.pack()
+add_button = tk.Button(window, text="ADD", command=add)
+add_button.pack()
+subtract_button = tk.Button(window, text="SUBTRACT", command=subtract)
+subtract_button.pack()
+multiply_button = tk.Button(window, text="MULTIPLY", command=multiply)
+multiply_button.pack()
+divide_button = tk.Button(window, text="DIVIDE", command=divide)
+divide_button.pack()
+window.mainloop()
