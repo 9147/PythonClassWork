@@ -13,55 +13,55 @@ import sys
 
 class Product:
     def __init__(self,name='',price=0.0):
-        self._name=name
-        self._price=price
+        self.__name=name
+        self.__price=price
 
     def name(self):
-        return self._name
+        return self.__name
 
     def price(self):
-        return self._price
+        return self.__price
 
     def __str__(self):
-        return " Name: "+str(self._name)+"\n Price: "+str(self._price)
+        return " Name: "+str(self.__name)+"\n Price: "+str(self.__price)
 
 class Order:
     def __init__(self,orderId=1,products=[]):
-        self._orderId=orderId
-        self._products=products
+        self.__orderId=orderId
+        self.__products=products
 
     def calculate_price(self):
         cost=0.0
-        for a in self._products:
+        for a in self.__products:
             cost+=a.price()
         return cost
 
     def orderID(self):
-        return self._orderId
+        return self.__orderId
 
     def display_products(self):
         s=""
-        for a in self._products:
+        for a in self.__products:
             s=s + str(a) +'\n'
         s+=" Total price: "+str(round(self.calculate_price(),2))+"\n"
         return s
 
     def __str__(self):
-        return "orderID: "+str(self._orderId)+"\n"+self.display_products()
+        return "orderID: "+str(self.__orderId)+"\n"+self.display_products()
 
 
 class Customer:
     order=0
     def __init__(self,name="maggie",email="mkbhat2003@gmail.com",orders=[]):
-        self._name=name
-        self._email=email
+        self.__name=name
+        self.__email=email
         self.orders=orders
 
     def email(self):
-        return self._email
+        return self.__email
 
     def name(self):
-        return self._name
+        return self.__name
 
     def place_order(self,products=[]):
         self.order+=1
@@ -89,7 +89,7 @@ class Customer:
             print("Couldnt find the order!!!")
 
     def __str__(self):
-        return "Name: "+self._name+"\nEmail: "+self._email
+        return "Name: "+self.__name+"\nEmail: "+self.__email
 
 
 prod=[Product("maggie",20),Product("Noodles",50),Product("Vadapav",15),Product("Samosa",17)]
@@ -117,9 +117,3 @@ while True:
         sys.exit()
     else:
         print("Incorrect choice!!")
-
-
-
-
-
-
